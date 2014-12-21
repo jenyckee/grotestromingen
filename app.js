@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport')
 var facebookStrategy = require('passport-facebook').Strategy;
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -15,6 +16,18 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -27,18 +40,44 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', routes);
 // app.use('/users', users);
 
+mongoose.connect('mongodb://localhost/grotestromingen');
+
+/*
+/ Models
+*/
+
+var userSchema = mongoose.Schema({
+    displayName: String,
+    uid : String
+})
+
+var User = mongoose.model('User', userSchema)
+
+// ------------------------------------------------ //
+
 passport.use(new facebookStrategy({
     clientID: "396488023841190",
     clientSecret: "5882717d42ecfc1f10dedc6a3d3e727e",
-    callbackURL: "http://grotestromingen.herokuapp.com/auth/facebook/callback"
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    userId = profile.id; 
-    username = profile.displayName;
 
-    User.findOrCreate( { userId : profile.id, username : profile.displayName }, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
+      User.findOne({ 'uid': profile.id }, function(err, olduser) {
+
+          if(olduser) {
+            console.log('User: ' + olduser.firstname + ' ' + olduser.lastname + ' found and logged in!');
+            done(null, olduser);
+          } else {
+            var newuser = new User();
+            newuser.firstname = profile.name.givenName;
+            newuser.lastname = profile.name.familyName;
+
+            newuser.save(function(err) {
+              if(err) { throw err; }
+              console.log('New user: ' + newuser.firstname + ' ' + newuser.lastname + ' created and logged in!');
+              done(null, newuser);
+            });
+          }
     });
   }
 ));
@@ -47,15 +86,14 @@ app.get('/', function(req, res){
     res.render('login', { user: req.user });
 });
 
-app.get('/auth/facebook',
-    passport.authenticate('facebook'),
-    function(req, res){
-});
+app.get('/auth/facebook', passport.authenticate('facebook'));
 
-app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', { failureRedirect: '/' }),
-    function(req, res) {
-        res.redirect('/home');
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/', successRedirect: '/home' }));
+
+
+app.get('/home', function(req, res){
+    res.render('home', { user: req.user, title: 'Express' });
 });
 
 app.get('/logout', function(req, res){
@@ -94,5 +132,10 @@ app.use(function(err, req, res, next) {
     });
 });
 
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) { return next(); }
+    console.log("authentication failed" + req);
+    res.redirect('/')
+}
 
 module.exports = app;
