@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport')
+var facebookStrategy = require('passport-facebook').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -22,8 +24,44 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
+
+passport.use(new facebookStrategy({
+    clientID: "396488023841190",
+    clientSecret: "5882717d42ecfc1f10dedc6a3d3e727e",
+    callbackURL: "http://grotestromingen.herokuapp.com/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    userId = profile.id; 
+    username = profile.displayName;
+
+    User.findOrCreate( { userId : profile.id, username : profile.displayName }, function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
+
+app.get('/', function(req, res){
+    res.render('login', { user: req.user });
+});
+
+app.get('/auth/facebook',
+    passport.authenticate('facebook'),
+    function(req, res){
+});
+
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/' }),
+    function(req, res) {
+        res.redirect('/home');
+});
+
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

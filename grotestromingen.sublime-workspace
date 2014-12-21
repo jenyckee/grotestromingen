@@ -1,0 +1,446 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ca",
+				"cache-size"
+			],
+			[
+				"server",
+				"server_multi_actor"
+			],
+			[
+				"New",
+				"NewUser"
+			],
+			[
+				"Acto",
+				"ActorManager"
+			],
+			[
+				"regi",
+				"register_user"
+			],
+			[
+				"Pid",
+				"Pid"
+			],
+			[
+				"actor",
+				"actor_manager"
+			],
+			[
+				"register",
+				"register_actor"
+			],
+			[
+				"rec",
+				"receive"
+			],
+			[
+				"get_",
+				"get_record"
+			],
+			[
+				"User",
+				"UserId"
+			],
+			[
+				"NewUser",
+				"NewUserActor"
+			],
+			[
+				"NewU",
+				"NewUserId"
+			],
+			[
+				"data",
+				"data_actor"
+			],
+			[
+				"N",
+				"NewUserActor"
+			],
+			[
+				"sp",
+				"spawn_link"
+			],
+			[
+				"que",
+				"queue_empty"
+			],
+			[
+				"re",
+				"receive"
+			],
+			[
+				"if",
+				"if_statement"
+			],
+			[
+				"Repe",
+				"RepeatingEvent"
+			],
+			[
+				"bs",
+				"bs2integer"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jenyckee/Dropbox/vub/grote stromingen/examenvragen/antwoorden.tex",
+		"/Users/jenyckee/Desktop/philo.json",
+		"/Users/jenyckee/Dropbox/vub/infoVis/DataVis/routes/index.js",
+		"/Users/jenyckee/Dropbox/vub/infoVis/DataVis/views/index.jade",
+		"/Users/jenyckee/Dropbox/vub/infoVis/DataVis/sunburst_breadcrumb/index.jade",
+		"/Users/jenyckee/Dropbox/vub/infoVis/DataVis/dataVis.sublime-project",
+		"/Users/jenyckee/Dropbox/vub/infoVis/DataVis/views/index.html",
+		"/Users/jenyckee/Desktop/3eat5urfin9_1362006031_demo_package/index.html",
+		"/Users/jenyckee/Desktop/3eat5urfin9_1362006031_demo_package/assets/surfing.css",
+		"/Users/jenyckee/Dropbox/vub/thesis/src/paper/index.html",
+		"/Users/jenyckee/Downloads/paperjs-v0.9.20/examples/Animated/SpaceUsingShapes.html",
+		"/Users/jenyckee/Desktop/3eat5urfin9_1362006031_demo_package/assets/js/Surfing.js",
+		"/Users/jenyckee/Dropbox/vub/thesis/src/paper/paper-full.min.js",
+		"/Users/jenyckee/Dropbox/vub/thesis/src/paper.html",
+		"/Users/jenyckee/Downloads/nexusUI-master/servers/node/nxserver.js",
+		"/Users/jenyckee/Downloads/nexusUI-master/servers/node/index.html",
+		"/Users/jenyckee/Downloads/nexusUI-master 2/servers/node/index.html",
+		"/Users/jenyckee/Downloads/nexusUI-master/examples/sub",
+		"/Users/jenyckee/Downloads/nexusUI-master/drop/nxserver.js",
+		"/Users/jenyckee/Downloads/MAX MSP 5.1.3 IKB/xvx.nfo",
+		"/Users/jenyckee/Downloads/Cycling '74 MaxMSP v4.5.5/H2O.nfo",
+		"/Users/jenyckee/Downloads/nexusUI-master/examples/-GettingStarted/Example1php.html",
+		"/Users/jenyckee/Downloads/nexusUI-master/examples/-GettingStarted/demo.html",
+		"/Users/jenyckee/Downloads/nexusUI-master/nexusUI.js",
+		"/Users/jenyckee/Documents/Tilly,",
+		"/Users/jenyckee/Dropbox/vub/we/report/report.tex",
+		"/Users/jenyckee/Documents/2MA/uid/project/ui-design/chapters/chapter-user_tasks.tex",
+		"/Users/jenyckee/Dropbox/vub/multicore/javafj project/agents.java",
+		"/Users/jenyckee/Dropbox/vub/multicore/javafj project/report.tex",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/report/report.tex",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/src/cache.clj",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/results/results.txt",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/src/splay_tree.clj",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/src/benchmark.clj",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/results/results_raw.csv",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/src/benchmarkm.clj",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/benchmark.clj",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/src/store.clj",
+		"/Users/jenyckee/Dropbox/vub/multicore/clojure project/src/load_generation",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/run_benchmarks_actors.sh",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/load_generation.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/javafj/agents.java",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/run_benchmarks_threads.sh",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/server_multi_actor.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/report/report.tex",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/erl_crash.dump",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/probabilistic_load.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/run_benchmarks.sh",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/output-load.txt",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/output-load.csv",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/brolling.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/report/erlang_report.tex",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/server_single_actor.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/server.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/src/stackoverflow question",
+		"/Users/jenyckee/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/jenyckee/Dropbox/vub/multicore/erlang project/untitled.sublime-project",
+		"/Users/jenyckee/Dropbox/vub/ossec/project/code/upload.html",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session03-Concurrent-Erlang-Snake/src/echo.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session03-Concurrent-Erlang-Snake/src/hello_world.erl",
+		"/Users/jenyckee/Dropbox/vub/atis/review Improving Navigation-Based File Retrieval",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session02-Erlang-Sequential-Snake/src/swap.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session02-Erlang-Sequential-Snake/src/pm_lists.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session02-Erlang-Sequential-Snake/src/records.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session02-Erlang-Sequential-Snake/src/control.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/Session02-Erlang-Sequential-Snake/src/pattern_matching.erl",
+		"/Users/jenyckee/Dropbox/vub/ple/soft.vub.ac.be/~jdekoste/PLE/Session1/Solution1.scm",
+		"/Users/jenyckee/Dropbox/vub/multicore/excercice_session1.erl",
+		"/Users/jenyckee/Dropbox/vub/multicore/excercice_session1.el",
+		"/Users/jenyckee/Downloads/D16.Group.Phoscyon.VSTi.AU.v1.8.0.MAC.OSX.UB-ArCADE/ArCADE/Phoscyon.key",
+		"/Users/jenyckee/Downloads/NI Pro 53/Native.Instruments.Pro53.v3.0.3.007.VSTi.RTAS.AU.MAC.OSX.UB-DYNAMiCS/dynamics.nfo",
+		"/Users/jenyckee/Dropbox/vub/fp/snap_project/src/Application.hs",
+		"/Users/jenyckee/Dropbox/vub/fp/snap_project/src/Db.hs",
+		"/Users/jenyckee/Dropbox/vub/fp/snap_project/src/Site.hs",
+		"/Users/jenyckee/Desktop/delete.hs",
+		"/Users/jenyckee/Dropbox/vub/fp/snap_project/snaplets/heist/templates/base.tpl",
+		"/Users/jenyckee/Dropbox/vub/fp/snap_project/log/error.log",
+		"/Users/jenyckee/Dropbox/vub/fp/snap_project/dbschema.sql"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/jenyckee/Dropbox/vub/infoVis/DataVis",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"data",
+			"d3.format",
+			"frequen",
+			"histogram",
+			"Welcome to Express",
+			"resize",
+			"localhos",
+			"\\\\item",
+			"newpage",
+			"section",
+			"extw",
+			"angle",
+			"\\[width=1\\\\textwidth\\]",
+			"0.5",
+			"clients",
+			"1000clients",
+			"1, 2, 3, 4 and 10 ",
+			"\"Elapsed time: ",
+			" msecs\"",
+			",\n",
+			"\"Elapsed time: ",
+			" msecs\"",
+			"msecs\"",
+			"3",
+			"io:",
+			"io",
+			"Elapsed",
+			"create",
+			"in a bash",
+			"0.5",
+			"get_actor",
+			"\nget_actor",
+			"get_actor\n\n\nget_actor",
+			"erlang:display",
+			"if ",
+			"print_",
+			"print_sta",
+			"statistics",
+			"io:",
+			"wall_",
+			"entry",
+			"server_sing",
+			"server_s",
+			"whereis",
+			"io:format",
+			"get_ti",
+			"data_actor,",
+			"whereis",
+			"l",
+			"local",
+			"newUSerActor",
+			"UserEntry",
+			"sets",
+			"scheduler",
+			"Entries",
+			",\n",
+			"server:sin",
+			"statistics",
+			"Page",
+			"server:",
+			"include",
+			"tweets(",
+			"tweets",
+			"server_single",
+			"server_sing",
+			"server_sin",
+			"work",
+			"process_other",
+			"process_ot",
+			"proces",
+			"length",
+			"Daily",
+			"daily",
+			"repeat",
+			"day",
+			"DB.Event",
+			"Event",
+			"tips",
+			"repea",
+			"server",
+			"delete"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\\\textw",
+			"\\\\extw",
+			"width=\\textwidth, angle",
+			"",
+			"1",
+			"client trheads",
+			"1000 clients",
+			"10, 100, 250, 500 and 1000",
+			"",
+			" ",
+			"",
+			",",
+			"0.3"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				".jad",
+				"DataVis/sunburst_breadcrumb/index.jade"
+			],
+			[
+				"inde",
+				"DataVis/routes/index.js"
+			],
+			[
+				"",
+				"server_multi_actor.erl"
+			],
+			[
+				"brol",
+				"brolling.erl"
+			],
+			[
+				"mul",
+				"server_multi_actor.erl"
+			],
+			[
+				"brolling",
+				"brolling.erl"
+			],
+			[
+				"ser",
+				"server_single_actor.erl"
+			],
+			[
+				"server",
+				"server.erl"
+			],
+			[
+				"q",
+				"stackoverflow question"
+			],
+			[
+				"sessions",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				".sql",
+				"dbschema.sql"
+			],
+			[
+				"db.hs",
+				"src/Db.hs"
+			],
+			[
+				".tpl",
+				"snaplets/heist/templates/base.tpl"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true
+}

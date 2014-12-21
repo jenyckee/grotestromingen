@@ -1,0 +1,38 @@
+[
+{
+	"id" : 1,
+	"title" : "Inleiding wat is filosofie?",
+	"questions" : [
+		"Waarom zeggen we dat woorden de vrijheid van het denken beperken?",
+		"Wat zegt Hegel over “het ware”?",
+		"Som de verschillende tijdperken op van de geschiedenis van de westerse",
+		"wijsbegeerte, duid begin- en einddatum aan van elke periode en geef tenminste drie filosofen per tijdperk (BV: voor de Postmoderniteit: Foucault, Deleuze en Agamben)",
+		"Kies vijf filosofische disciplines die volgens u belangrijk zijn voor onze tegenwoordige tijd. Leg kort de reden van uw keuze uit.",
+		"Kies de grote stromingen waarmee u zich geïdentificeerd ziet. Leg kort uit waarom.",
+		"Wat zegt de Franse filosoof G. Deleuze over de filosofie?",
+		"Wat toont ons de etymologie van de woorden “filosofie” en “wijsbegeerte” over het filosoferen?"
+	]
+},
+{
+	"id" : 2,
+	"title" : "De geschiedenis van de filosofie: filosofie of filosofieen",
+	"questions" : [
+		"Wat hebben we gezegd over Foucaults idee van waarheid?"
+	]
+},
+{
+	"id" : 3,
+	"title" : "",
+	"vragen" : []
+},
+{
+	"id" : 4,
+	"title" : "",
+	"vragen" : []
+},
+{
+	"id" : 5,
+	"title" : "",
+	"vragen" : []
+}
+]
