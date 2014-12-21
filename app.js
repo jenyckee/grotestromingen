@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', routes);
 // app.use('/users', users);
 
-mongoose.connect('mongodb://localhost/grotestromingen');
+mongoose.connect('mongodb://jenyckee:a6*7912S@ds027521.mongolab.com:27521/grotestromingen');
 
 /*
 / Models
@@ -93,6 +93,7 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRe
 
 
 app.get('/home', function(req, res){
+    console.log(req.user);
     res.render('home', { user: req.user, title: 'Express' });
 });
 
