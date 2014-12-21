@@ -58,7 +58,7 @@ var User = mongoose.model('User', userSchema)
 passport.use(new facebookStrategy({
     clientID: "396488023841190",
     clientSecret: "5882717d42ecfc1f10dedc6a3d3e727e",
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "http://grotestromingen.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
 
