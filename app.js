@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var passport = require('passport')
 var facebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
+var session = require('express-session');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -17,16 +19,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  console.log("serializing User with id " + user._id);
+
+  done(null, user._id);
 });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(id, done) {
+  console.log("deserializing User with id " + id);
+
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 // uncomment after placing your favicon in /public
@@ -35,7 +40,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // app.use('/', routes);
 // app.use('/users', users);
@@ -48,21 +62,39 @@ mongoose.connect('mongodb://jenyckee:a6*7912S@ds027521.mongolab.com:27521/grotes
 
 var userSchema = mongoose.Schema({
     displayName: String,
-    uid : String
+    firstname: String,
+    lastname: String,
+    id : String
 })
 
 var User = mongoose.model('User', userSchema)
+
+
+var userSchema = mongoose.Schema({
+    displayName: String,
+    firstname: String,
+    lastname: String,
+    id : String
+})
+
+var Lesson = mongoose.model('Lesson', userSchema)
+
+var lessonSchema = mongoose.Schema({
+    id : Number,
+    title : String,
+    questions : [String]
+})
 
 // ------------------------------------------------ //
 
 passport.use(new facebookStrategy({
     clientID: "396488023841190",
     clientSecret: "5882717d42ecfc1f10dedc6a3d3e727e",
-    callbackURL: "http://grotestromingen.herokuapp.com/auth/facebook/callback"
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
 
-      User.findOne({ 'uid': profile.id }, function(err, olduser) {
+      User.findOne({ 'id': profile.id }, function(err, olduser) {
 
           if(olduser) {
             console.log('User: ' + olduser.firstname + ' ' + olduser.lastname + ' found and logged in!');
@@ -71,6 +103,8 @@ passport.use(new facebookStrategy({
             var newuser = new User();
             newuser.firstname = profile.name.givenName;
             newuser.lastname = profile.name.familyName;
+            newuser.displayName = profile.displayName;
+            newuser.id = profile.id;
 
             newuser.save(function(err) {
               if(err) { throw err; }
@@ -86,15 +120,24 @@ app.get('/', function(req, res){
     res.render('login', { user: req.user });
 });
 
+app.get('/bla', function(req, res){
+  res.send('id: ' + req.query.id);
+});
+
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
 
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/', successRedirect: '/home' }));
+app.get('/auth/facebook/callback', 
+    passport.authenticate('facebook', { failureRedirect: '/' }),
+    function(req, res) {
+        res.redirect('/home');
+});
 
 
-app.get('/home', function(req, res){
-    console.log(req.user);
-    res.render('home', { user: req.user, title: 'Express' });
+app.get('/home', isLoggedIn, function(req, res){
+    Lesson.find({}, function(err, lessons) {
+        res.render('home', { user: req.user, lessons: lessons});
+    });
 });
 
 app.get('/logout', function(req, res){
@@ -133,10 +176,14 @@ app.use(function(err, req, res, next) {
     });
 });
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) { return next(); }
-    console.log("authentication failed" + req);
-    res.redirect('/')
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
 }
 
 module.exports = app;
