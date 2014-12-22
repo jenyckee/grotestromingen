@@ -8,13 +8,16 @@ block content
         #banner.page-header
           h1 Examenvragen Grote Stromingen
     .row
-      table.table.table-striped.table-hover
-        thead
-          tr
-            td 
-        tbody
-          each lesson in lessons
-            tr
-              td #{lesson.id} 
-   script.
-      var data = !{JSON.stringify(lessons)}
+      each lesson in lessons
+        - console.log(lesson);
+        .panel.panel-default
+          .panel-heading 
+            h4 Les #{lesson.id} : #{lesson.title}
+          .panel-body
+            ol
+              for question in lesson.questions
+                li
+                  a(href="lessons/#{lesson._id}/#{question._id}") #{question.text}
+  
+  //- script.
+  //-   var data = !{JSON.stringify(lessons)}

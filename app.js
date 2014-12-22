@@ -21,15 +21,11 @@ app.set('view engine', 'jade');
 
 
 passport.serializeUser(function(user, done) {
-  console.log("serializing User with id " + user._id);
-
   done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {
-  console.log("deserializing User with id " + id);
-
-  User.findById(id, function(err, user) {
+  models.User.findById(id, function(err, user) {
     done(err, user);
   });
 });
@@ -54,38 +50,14 @@ app.use(passport.session());
 // app.use('/', routes);
 // app.use('/users', users);
 
-mongoose.connect('mongodb://jenyckee:a6*7912S@ds027521.mongolab.com:27521/grotestromingen');
-
 /*
 / Models
 */
 
-var userSchema = mongoose.Schema({
-    displayName: String,
-    firstname: String,
-    lastname: String,
-    id : String
-})
+var models = require('./models');
+var seed = require('./seed');
 
-var User = mongoose.model('User', userSchema)
-
-
-var userSchema = mongoose.Schema({
-    displayName: String,
-    firstname: String,
-    lastname: String,
-    id : String
-})
-
-var Lesson = mongoose.model('Lesson', userSchema)
-
-var lessonSchema = mongoose.Schema({
-    id : Number,
-    title : String,
-    questions : [String]
-})
-
-// ------------------------------------------------ //
+seed.seedLessons();
 
 passport.use(new facebookStrategy({
     clientID: "396488023841190",
@@ -94,13 +66,13 @@ passport.use(new facebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
 
-      User.findOne({ 'id': profile.id }, function(err, olduser) {
+      models.User.findOne({ 'id': profile.id }, function(err, olduser) {
 
           if(olduser) {
             console.log('User: ' + olduser.firstname + ' ' + olduser.lastname + ' found and logged in!');
             done(null, olduser);
           } else {
-            var newuser = new User();
+            var newuser = new models.User();
             newuser.firstname = profile.name.givenName;
             newuser.lastname = profile.name.familyName;
             newuser.displayName = profile.displayName;
@@ -120,12 +92,7 @@ app.get('/', function(req, res){
     res.render('login', { user: req.user });
 });
 
-app.get('/bla', function(req, res){
-  res.send('id: ' + req.query.id);
-});
-
 app.get('/auth/facebook', passport.authenticate('facebook'));
-
 
 app.get('/auth/facebook/callback', 
     passport.authenticate('facebook', { failureRedirect: '/' }),
@@ -133,10 +100,13 @@ app.get('/auth/facebook/callback',
         res.redirect('/home');
 });
 
-
 app.get('/home', isLoggedIn, function(req, res){
-    Lesson.find({}, function(err, lessons) {
-        res.render('home', { user: req.user, lessons: lessons});
+    models.Lesson.find({})
+    .populate('questions')
+    .exec(function(err, theLessons) {
+        theLessons = theLessons.sort(function(a,b) { return a.id - b.id; });
+
+        res.render('home', { user: req.user, lessons: theLessons} );
     });
 });
 
